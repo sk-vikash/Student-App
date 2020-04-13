@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+  <property name="LOG_FILE"
+    value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+  <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} - %msg%n"/>
+  <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+  <springProperty name="MAX_HISTORY" source="logging.max_history"/>
+  <springProperty name="CLEAN_HISTORY" source="logging.clean_history_on_start"/>
+  <property resource="application.properties"/>
+
+  <appender class="ch.qos.logback.core.rolling.RollingFileAppender"
+    name="ROLLING-FILE">
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+    <file>${LOG_FILE}</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>${MAX_HISTORY}</maxHistory>   <!-- keep file log history -->
+      <cleanHistoryOnStart>${CLEAN_HISTORY}</cleanHistoryOnStart>
+    </rollingPolicy>
+  </appender>
+
+  <root level="INFO">
+     <appender-ref ref="CONSOLE"/>
+    <!--<appender-ref ref="ROLLING-FILE"/>-->
+  </root>
+</configuration>
