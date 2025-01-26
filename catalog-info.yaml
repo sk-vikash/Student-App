@@ -16,5 +16,5 @@ tags:
 spec:
   type: api
   lifecycle: development
-  owner: vikash
+  owner: vikash1
   system: students-api
