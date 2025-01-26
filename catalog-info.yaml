@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: student-app
+  description: An example of a Backstage application.
+  # Example for optional annotations
+spec:
+  type: api
+  owner: vikash
+  lifecycle: experimental
