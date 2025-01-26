@@ -19,3 +19,16 @@ spec:
   lifecycle: development
   owner: vikash1
   system: students-api
+  definition: |
+    openapi: "3.0.0"
+    info:
+      version: 1.0.0
+      title: Artist API
+      license:
+        name: MIT
+    servers:
+      - url: http://localhost:8080/dsi
+    paths:
+      /check-studentinformation:
+        get:
+          summary: all student
