@@ -3,12 +3,10 @@ kind: Component
 metadata:
   name: student-app
   description: Student application
-  labels:
-    example.com/custom: custom_label_value
   annotations:
-    example.com/service-discovery: artistweb
-    circleci.com/project-slug: github/example-org/artist-website
-  tags:
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: pep8speaks-org/pep8speaks
+tags:
     - java
   links:
     - url: https://admin.example-org.com
@@ -16,7 +14,7 @@ metadata:
       icon: dashboard
       type: admin-dashboard
 spec:
-  type: API
+  type: api
   lifecycle: development
   owner: vikash
   system: students-api
